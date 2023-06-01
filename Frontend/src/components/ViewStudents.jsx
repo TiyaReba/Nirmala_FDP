@@ -54,9 +54,11 @@ const ViewStudents = () => {
 
                 {/* <TableCell style={styles.tableHeaderCell}>ID</TableCell> */}
                 <TableCell style={styles.tableHeaderCell}>NAME</TableCell>
-                <TableCell style={styles.tableHeaderCell}>GRADE</TableCell>
-                <TableCell style={styles.tableHeaderCell}>UPDATE</TableCell>
-                <TableCell style={styles.tableHeaderCell}>DELETE</TableCell>
+                <TableCell style={styles.tableHeaderCell}>Age</TableCell>
+                <TableCell style={styles.tableHeaderCell}>Positon</TableCell>
+                <TableCell style={styles.tableHeaderCell}>Salary</TableCell>
+                <TableCell style={styles.tableHeaderCell}></TableCell>
+                <TableCell style={styles.tableHeaderCell}></TableCell>
             </TableRow>
             </TableHead>
             <TableBody>
@@ -64,7 +66,11 @@ const ViewStudents = () => {
                     return <TableRow key={index}>
                     {/* <TableCell>{value._id}</TableCell> */}
                     <TableCell>{value.sname}</TableCell>
-                    <TableCell>{value.sgrade}</TableCell>
+                    <TableCell>{value.age}</TableCell>
+                    <TableCell>{value.position}</TableCell>
+
+                    <TableCell>{value.salary}</TableCell>
+
                     <TableCell>
                         <EditRoundedIcon variant='outlined'
                         color='success'

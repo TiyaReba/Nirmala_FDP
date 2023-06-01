@@ -2,13 +2,16 @@ import { Button, TextField } from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
 
+import { useNavigate } from 'react-router-dom';
+
 const AddStudents = (props) => {
+  const navigate = useNavigate();
   var [inputs, setInputs] = useState(props.data);
 
   console.log("add page props" + props.method);
 
   const inputHandler = (e) => {
-    // console.log(data.id)
+   
     const { name, value } = e.target;
     setInputs((previousState) => ({
       ...previousState,
@@ -18,20 +21,23 @@ const AddStudents = (props) => {
 
   const readValues = () => {
     console.log("clicked");
-    console.log("in:",inputs);
+    console.log("in:", inputs);
     if (props.method === "post")
-      axios.post("http://localhost:3005/create", inputs)
+      axios
+        .post("http://localhost:3005/create", inputs)
         .then((response) => {
           console.log("post data" + response.data);
           alert("success");
+          navigate('/');
         })
         .catch((err) => {
           console.log(err);
         });
 
-    if (props.method === "put"){
-      axios.put("http://localhost:3005/update/" + inputs._id, inputs)
-      .then((response) => {
+    if (props.method === "put") {
+      axios
+        .put("http://localhost:3005/update/" + inputs._id, inputs)
+        .then((response) => {
           console.log("put data" + response.data);
           alert("success");
           window.location.reload(false);
@@ -39,7 +45,8 @@ const AddStudents = (props) => {
         .catch((err) => {
           console.log(err);
         });
-  }};
+    }
+  };
   return (
     <div>
       <br></br>
@@ -47,13 +54,7 @@ const AddStudents = (props) => {
       <br></br>
       <br></br>
       <br></br>
-      {/* <TextField
-        label="id"
-        value={inputs.id}
-        name="id"
-        onChange={inputHandler}
-        variant="outlined"
-      /> */}
+    
       <br />
       <br />
       <br />
@@ -68,9 +69,29 @@ const AddStudents = (props) => {
       <br />
       <br />
       <TextField
+        label="Age"
+        value={inputs.age}
+        name="age"
+        onChange={inputHandler}
+        variant="outlined"
+      />
+      <br />
+      <br />
+      <br />
+      <TextField
         label="Position"
-        value={inputs.sgrade}
-        name="sgrade"
+        value={inputs.position}
+        name="position"
+        onChange={inputHandler}
+        variant="outlined"
+      />
+      <br />
+      <br />
+      <br />
+      <TextField
+        label="Salary"
+        value={inputs.salary}
+        name="salary"
         onChange={inputHandler}
         variant="outlined"
       />

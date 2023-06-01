@@ -11,7 +11,9 @@ mongoose.connect("mongodb+srv://tiyars:tiya@cluster0.l6d4x3p.mongodb.net/test?re
 
  const studentSchema = new Schema({
     sname:String,
-    sgrade:Number
+    age:Number,
+    position:String,
+    salary:Number
  })
 
  var studentmodel = mongoose.model("students",studentSchema);

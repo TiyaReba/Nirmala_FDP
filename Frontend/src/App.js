@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path='/'element={<ViewStudents/>} />
         <Route path='/add' 
-        element={<AddStudents data={{sname:'',sgrade:''}} method="post"/>} />
+        element={<AddStudents data={{sname:'',age:'',position:'',salary:''}} method="post"/>} />
       </Routes>
       
     </div>
